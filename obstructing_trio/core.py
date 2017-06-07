@@ -85,6 +85,6 @@ class Core(object):
                 print('You can find you list of contributor(s) into %s =)' %
                       path.abspath(self.OUTPUT_DESTINATION))
                 exit()
-            rmtree(self.QUERY_OUTPUT_DESTINATION)
-            print(funilrys)
-            exit()
+        rmtree(self.QUERY_OUTPUT_DESTINATION)
+        print(funilrys)
+        exit()
