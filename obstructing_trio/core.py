@@ -21,7 +21,7 @@ from .helpers import (convert_JSON_to_dict, execute_save_cmd, format_list,
 class Core(object):
     """Brain of the program. Get the list of contributor(s) from a Github project"""
 
-    def __init__(self, repository):
+    def __init__(self, repository,  **args):
         splited = repository.split('/')
         (self.username, self.repo) = (splited[0], splited[1])
 
@@ -35,7 +35,15 @@ class Core(object):
 
         self.COMMAND = 'curl ' + self.REPO_URL
 
-        self.EXCLUDED = ['gitter-badger']
+        optional_arguments = {
+            "show_dict": False,
+            "show_list": False,
+            "save_in_file": True,
+            "excluded": ['gitter-badger']
+        }
+
+        for (arg, default) in optional_arguments.items():
+            setattr(self, arg, args.get(arg, default))
 
         self.contributors_info = []
         self.final_list_contributors = []
@@ -53,16 +61,32 @@ class Core(object):
         self.contributors_info = data
         return True
 
+    def format_result(self):
+        """Return a formated list of formated dict"""
+        if self.show_list and self.show_dict or self.show_dict:
+            self.result = {'contributors': format_list(
+                self.final_list_contributors)}
+        else:
+            self.result = format_list(self.final_list_contributors)
+
+    def save_dict(self):
+        """Save result into a file"""
+
+        if self.save_in_file and isinstance(self.result, dict):
+            save_dict_to_JSON(self.result, self.OUTPUT_DESTINATION)
+            return True
+        return False
+
     def get_login_of_contributors(self):
         """Get the logins from self.get_api_information results"""
 
         if self.contributors_info != []:
             for item in self.contributors_info:
-                if item['login'] not in self.EXCLUDED:
+                if item['login'] not in self.excluded:
                     self.final_list_contributors.append(item['login'])
-            result = {'contributors': format_list(
-                self.final_list_contributors)}
-            save_dict_to_JSON(result, self.OUTPUT_DESTINATION)
+
+            self.format_result()
+
             return True
         return False
 
@@ -79,9 +103,13 @@ class Core(object):
         if funilrys:
             if self.get_login_of_contributors():
                 rmtree(self.QUERY_OUTPUT_DESTINATION)
-                print('You can find you list of contributor(s) into %s =)' %
-                      path.abspath(self.OUTPUT_DESTINATION))
-                exit()
+
+                if self.save_dict() and self.show_list == False and self.show_dict == False:
+                    print('You can find you list of contributor(s) into %s =)' %
+                          path.abspath(self.OUTPUT_DESTINATION))
+                    exit()
+                else:
+                    return self.result
         rmtree(self.QUERY_OUTPUT_DESTINATION)
 
         print(funilrys)
