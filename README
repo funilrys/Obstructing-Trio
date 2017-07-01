@@ -8,11 +8,11 @@ By Funilrys  http://github.com/funilrys
 
 Features
 =============
- * Works with python2.x and python3.x
- * Access GitHub project contributors
+ * Works with Python 3.x and Python 2.x
+ * Access GitHub repository contributors list
  * Get list of contributors username in JSON format
- * Get list of contributors username in python `dict` format
- * Get list of contributors username in python `list` format
+ * Get list of contributors username in Python `dict` format
+ * Get list of contributors username in Python `list` format
  * Exclude username from generated list
 
 

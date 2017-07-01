@@ -4,20 +4,20 @@
 
 > Python module/library for saving the list of contributors of a given public Github repository into a JSON file.
 
-## Freatures
+## Features
 
-- Works with python3.x and python2.x
+- Works with Python 3.x and Python 2.x
 - Access GitHub repository contributors list
 - Get list of contributors username in JSON format
-- Get list of contributors username in python `dict` format
-- Get list of contributors username in python `list` format
+- Get list of contributors username in Python `dict` format
+- Get list of contributors username in Python `list` format
 - Exclude username from generated list
 
 ## Installation
 
 ### From Github
 
-```bash
+```shell
 git clone https://github.com/funilrys/Obstructing-Trio.git
 cd Obstructing-Trio && python setup.py install
 ```
@@ -49,7 +49,7 @@ print(usernames)
 
 ### Python `dict` format
 
-The following will save the **list of contributors** into `contributors.json` and it'll return a _python_ `dict` of the contributors usernames.
+The following will save the **list of contributors** into `contributors.json` and it'll return a _python_ `dict` of the contributor's usernames.
 
 **Output format:** `{'contributors':['user1','user2']}`
 
@@ -63,7 +63,7 @@ print(usernames)
 
 ### Exclusion
 
-The following will exclude the usernames _**funilrys**_ and _**gitter-badger**_ from the **list of contributors**.
+The following will exclude the usernames _**funilrys**_ and _**gitter-badger**_ from the **list of contributor's** usernames.
 
 ```python
 #!/bin/env python
