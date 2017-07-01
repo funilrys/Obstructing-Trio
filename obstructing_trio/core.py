@@ -1,6 +1,4 @@
-#!/bin/env python
-
-# Obstructing Trio -  Python module/library for saving the list of contributors of a given public Github project.
+# Obstructing Trio -  Python module/library for saving the list of contributors of a given public Github repository into a JSON file.
 # Copyright (C) 2017  Funilrys - Nissar Chababy <contact at funilrys dot com>
 #
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
@@ -16,16 +14,16 @@
 from os import makedirs, path
 from shutil import rmtree
 
-from helpers import (convert_JSON_to_dict, execute_save_cmd, format_list,
-                     read_file, save_dict_to_JSON)
+from .helpers import (convert_JSON_to_dict, execute_save_cmd, format_list,
+                      read_file, save_dict_to_JSON)
 
 
 class Core(object):
     """Brain of the program. Get the list of contributor(s) from a Github project"""
 
-    def __init__(self, github_username, github_repository):
-        self.username = github_username
-        self.repo = github_repository
+    def __init__(self, repository):
+        splited = repository.split('/')
+        (self.username, self.repo) = (splited[0], splited[1])
 
         self.API_BASE_URL = 'https://api.github.com/repos/'
         self.REPO_URL = self.API_BASE_URL + \
@@ -48,7 +46,6 @@ class Core(object):
         execute_save_cmd(self.COMMAND, self.FULL_INFO_OUTPUT)
 
         content = read_file(self.FULL_INFO_OUTPUT)
-
         data = convert_JSON_to_dict(content)
 
         if 'message' in data:
@@ -80,11 +77,12 @@ class Core(object):
         funilrys = self.get_api_information()
 
         if funilrys:
-            if self.get_login_of_contributors(self):
+            if self.get_login_of_contributors():
                 rmtree(self.QUERY_OUTPUT_DESTINATION)
                 print('You can find you list of contributor(s) into %s =)' %
                       path.abspath(self.OUTPUT_DESTINATION))
                 exit()
         rmtree(self.QUERY_OUTPUT_DESTINATION)
+
         print(funilrys)
         exit()
