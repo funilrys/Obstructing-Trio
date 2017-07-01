@@ -1,6 +1,4 @@
-#!/bin/env python
-
-# Obstructing Trio -  Python module/library for saving the list of contributors of a given public Github project.
+# Obstructing Trio -  Python module/library for saving the list of contributors of a given public Github repository into a JSON file.
 # Copyright (C) 2017  Funilrys - Nissar Chababy <contact at funilrys dot com>
 #
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
@@ -14,8 +12,9 @@
 # Original Version: https://github.com/funilrys/Obstructing-Trio
 
 from json import dump, loads
+from sys import version_info
 
-from process import Process
+from .process import Process
 
 
 def write_file(content, destination):
@@ -29,7 +28,7 @@ def write_file(content, destination):
         file.write(content)
 
 
-def execute_save_cmd(self, command, destination):
+def execute_save_cmd(command, destination):
     """Execute and save the result of a command into a defined file.
 
     :param command: A string, the command to execute in shell format
@@ -67,8 +66,9 @@ def format_list(data):
 
     :param data: A list, the list to format
     """
-
-    return sorted(list(set(data)), key=str.lower)
+    if(version_info[0] >= 3):
+        return sorted(list(set(data)), key=str.lower)
+    return sorted(list(set(data)), key=unicode.lower)
 
 
 def save_dict_to_JSON(data, destination):
