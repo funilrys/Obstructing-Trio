@@ -1,6 +1,4 @@
-#!/bin/env python
-
-# Obstructing Trio -  Python module/library for saving the list of contributors of a given public Github project.
+# Obstructing Trio -  Python module/library for saving the list of contributors of a given public Github repository into a JSON file.
 # Copyright (C) 2017  Funilrys - Nissar Chababy <contact at funilrys dot com>
 #
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
