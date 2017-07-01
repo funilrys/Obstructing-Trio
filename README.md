@@ -1,6 +1,6 @@
 # Obstructing Trio (GitHub Contributors)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![GitHub release](https://img.shields.io/github/release/funilrys/Obstructing-Trio.svg)](https://github.com/funilrys/Obstructing-Trio/releases/tag/1.0.1) [![GitHub commits](https://img.shields.io/github/commits-since/funilrys/Obstructing-Trio/1.0.1.svg)](https://github.com/funilrys/Obstructing-Trio/commits/master) [![Github API](https://img.shields.io/badge/GitHub%20REST%20API-v3-yellow.svg)](https://docs.transifex.com/api/introduction)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![GitHub release](https://img.shields.io/github/release/funilrys/Obstructing-Trio.svg)](https://github.com/funilrys/Obstructing-Trio/releases/tag/1.1.0) [![GitHub commits](https://img.shields.io/github/commits-since/funilrys/Obstructing-Trio/1.1.0.svg)](https://github.com/funilrys/Obstructing-Trio/commits/master) [![Github API](https://img.shields.io/badge/GitHub%20REST%20API-v3-yellow.svg)](https://docs.transifex.com/api/introduction)
 
 > Python module/library for saving the list of contributors of a given public Github repository into a JSON file.
 
