@@ -7,7 +7,7 @@
 ## Freatures
 
 - Works with python3.x and python2.x
-- Access github repository contributors list
+- Access GitHub repository contributors list
 - Get list of contributors username in JSON format
 
 ## Installation
