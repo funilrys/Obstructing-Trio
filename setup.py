@@ -15,7 +15,7 @@ from distutils.core import setup
 
 setup(
     name='obstructing_trio',
-    version="1.0.0",
+    version="1.0.1",
     description='Python module/library for saving the list of contributors of a given public Github project into JSON file.',
     long_description=open('README').read(),
     author='funilrys',
@@ -31,6 +31,7 @@ setup(
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'Programming Language :: Python',
+        'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License'
     ],
