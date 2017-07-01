@@ -36,8 +36,8 @@ class Core(object):
         self.COMMAND = 'curl ' + self.REPO_URL
 
         optional_arguments = {
-            "show_dict": False,
-            "show_list": False,
+            "return_dict": False,
+            "return_list": False,
             "save_in_file": True,
             "excluded": ['gitter-badger']
         }
@@ -63,7 +63,7 @@ class Core(object):
 
     def format_result(self):
         """Return a formated list of formated dict"""
-        if self.show_list and self.show_dict or self.show_dict:
+        if self.return_list and self.return_dict or self.return_dict:
             self.result = {'contributors': format_list(
                 self.final_list_contributors)}
         else:
@@ -104,7 +104,7 @@ class Core(object):
             if self.get_login_of_contributors():
                 rmtree(self.QUERY_OUTPUT_DESTINATION)
 
-                if self.save_dict() and self.show_list == False and self.show_dict == False:
+                if self.save_dict() and self.return_list == False and self.return_dict == False:
                     print('You can find you list of contributor(s) into %s =)' %
                           path.abspath(self.OUTPUT_DESTINATION))
                     exit()
