@@ -11,6 +11,9 @@ Features
  * Works with python2.x and python3.x
  * Access GitHub project contributors
  * Get list of contributors username in JSON format
+ * Get list of contributors username in python `dict` format
+ * Get list of contributors username in python `list` format
+ * Exclude username from generated list
 
 
 Usage example
@@ -19,4 +22,6 @@ Usage example
 >>> from obstructing_trio import get
 >>> # lookup the contributors of https://github.com/funilrys/funceble
 >>> # Save the results into contributors.json in your current directory
->>>  get('funilrys/funceble')
+>>> get('funilrys/funceble')
+
+For more please report to https://github.com/funilrys/Obstructing-Trio
