@@ -14,7 +14,7 @@
 from .core import Core
 
 
-def get(github_repository):
+def get(github_repository,  **args):
     """Send data and perform Core()"""
 
-    return Core(github_repository).get()
+    return Core(github_repository, **args).get()
